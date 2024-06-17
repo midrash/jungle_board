@@ -1,17 +1,9 @@
 version: '3.8'
 
 services:
-  # db:
-  #   image: postgres
-  #   environment:
-  #     - POSTGRES_DB=test
-  #     - POSTGRES_USER=test
-  #     - POSTGRES_PASSWORD=test
-  #     - POSTGRES_INITDB_ARGS=--encoding=UTF-8
-
   app:
-    image: 
-      - jungle_board
+    image: jungle_board:latest
+    build: .
     expose:
       - 8080
     ports:
