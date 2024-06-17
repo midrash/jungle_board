@@ -3,7 +3,7 @@ const db = require("../db");
 const conn = db.connection;
 
 function login(userInfo){
-    let sql = `select ut.uuid ,ut.name,ut.id from user_t ut where ut.id = ? and ut.password = ?`;
+    let sql = `select ut.uuid ,ut.name,ut.id,ut.password from user_t ut where ut.id = ?`;
     // let params = [userInfo.userId,userInfo.userPassword];
     return new Promise((resolve,reject)=>{
         conn.query(sql,userInfo, (err, rows, fields) => {
