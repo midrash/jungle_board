@@ -8,7 +8,7 @@ jobs:
     name : build docker image
     steps:
     - name : docker build
-      run: docker build .
+      run: docker build -t jungle_board .
   deploy:
     runs-on: self-hosted
     name : deploy to local docker
