@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const cors = require("cors"); 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var boardRouter = require('./routes/board');
@@ -13,6 +15,12 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(cors({
+  origin: "*", // 접근 권한을 부여하는 도메인
+  // credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
+  // optionsSuccessStatus: 200, // 응답 상태 200으로 설정
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
