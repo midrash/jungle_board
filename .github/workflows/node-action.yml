@@ -14,7 +14,8 @@ jobs:
     - name : docker Down
       run: docker-compose down
     - name : docker remove image
-      run: docker rmi jungle_board || true
+      run: docker rmi jungle_board
+      continue-on-error: true
     - name : docker build
       run: docker build -t jungle_board .
     - name : docker up 
