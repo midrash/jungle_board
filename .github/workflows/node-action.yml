@@ -3,14 +3,6 @@ name: node CI
 on: [push]
 
 jobs:
-  build:
-    runs-on: self-hosted
-    name : build docker image
-    steps:
-    - name : docker Down
-      run: docker-compose down
-    - name : docker build
-      run: docker build -t jungle_board .
   deploy:
     runs-on: self-hosted
     name : deploy to local docker
@@ -19,5 +11,9 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '20.x'
+    - name : docker Down
+      run: docker-compose down
+    - name : docker build
+      run: docker build -t jungle_board .
     - name : docker up 
       run: docker-compose up -d

@@ -3,7 +3,6 @@ version: '3.8'
 services:
   app:
     image: jungle_board:latest
-    build: .
     expose:
       - 8080
     ports:
