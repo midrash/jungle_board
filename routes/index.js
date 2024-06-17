@@ -5,7 +5,7 @@ const auth = require("../auth")
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' });
-  res.send('자꾸 쓸모없는 이미지가 만들어져요3');
+  res.send('합격 축하 ');
 });
 router.get('/test', function(req, res, next) {
   // res.render('index', { title: 'Express' });
