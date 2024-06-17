@@ -5,6 +5,12 @@ on: [push]
 jobs:
   build:
     runs-on: self-hosted
+    name : build docker image
+    steps:
+    - name : docker build
+      run: docker build .
+  deploy:
+    runs-on: self-hosted
     name : deploy to local docker
     steps:
     - uses: actions/checkout@v4
