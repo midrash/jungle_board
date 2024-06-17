@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: DESKTOP-57LKF3C
+    runs-on: self-hosted
     name : deploy to local docker
     steps:
     - uses: actions/checkout@v4
