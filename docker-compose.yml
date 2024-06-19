@@ -1,11 +1,35 @@
 version: '3.8'
 
 services:
+  db:
+    image: mysql
+    restart: unless-stopped
+    volumes:
+        - ./db/data:/var/lib/mysql
+    ports:
+        - 3307:3306
+    environment:
+      - MYSQL_DATABASE=jgboard
+      - MYSQL_ROOT_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_CONTAINER_NAME=jungle_board-db
   app:
+    build: # build의 다음 명령어에 대해 root를 현재 디렉토리로 설정한다.
+      context: /
+      dockerfile: Dockerfile
+    # environment:
+    #   - DB_HOST=localhost
+    #   - DB_PORT=3306
+    #   - DB_NAME=jgboard
+    #   - DB_USERNAME=root
+    #   - DB_PASSWORD=root
+    depends_on: #의존성을 설정하며 db 컨테이너가 실행된 후에 실행된다
+      - db
     image: jungle_board:latest
-    expose:
-      - 8080
     ports:
       - "3000:3000"
     command:
       - npm start
+    volumes:
+      - ./:/app/
