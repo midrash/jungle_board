@@ -5,14 +5,6 @@ services:
     build: # build의 다음 명령어에 대해 root를 현재 디렉토리로 설정한다.
       context: /
       dockerfile: Dockerfile
-    # environment:
-    #   - DB_HOST=localhost
-    #   - DB_PORT=3306
-    #   - DB_NAME=jgboard
-    #   - DB_USERNAME=root
-    #   - DB_PASSWORD=root
-    depends_on: #의존성을 설정하며 db 컨테이너가 실행된 후에 실행된다
-      - db
     image: jungle_board:latest
     ports:
       - "3000:3000"
