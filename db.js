@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
   // host: "localhost",
   host: "host.docker.internal",
   user: "root",
-  port: 3307,
+  port: 3306,
   password: "root",
   database: "jgboard",
   dateStrings: "date",
