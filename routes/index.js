@@ -5,7 +5,7 @@ const auth = require("../auth");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   // res.render('index', { title: 'Express' });
-  res.send("테스트 배포");
+  res.send("테스트 배2");
 });
 router.get("/test", function (req, res, next) {
   // res.render('index', { title: 'Express' });
